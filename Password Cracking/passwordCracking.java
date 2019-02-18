@@ -1,7 +1,5 @@
 
 // Alymbek Damir Uulu 
-// MUID: 901852237
-// damiruulu@marshall.edu
 
 import java.util.ArrayList;
 import java.util.Scanner;
