@@ -1,5 +1,4 @@
 // Alymbek Damir Uulu 
-// MUID: 901852237
 
 import java.util.HashMap;
 import java.util.Scanner;
