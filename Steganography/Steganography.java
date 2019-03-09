@@ -25,8 +25,9 @@ public class Steganography {
 				String filename = in.next();
 				System.out.println("Please enter the filename of the file that you want to hide: ");
 				String filenameHide = in.next();
-
-				encode(filename, filenameHide);
+				System.out.println("Please enter the filename for WAV with hidden message");
+				String newFileNameHide = in.next();
+				encode(filename, filenameHide, newFileNameHide);
 				break;
 			case "b":
 				
@@ -52,7 +53,7 @@ public class Steganography {
 	 * Encode method is a message embedding function.
 	 * This method was written on the basis of LSB algorithm.
 	 */
-	private static void encode(String filename, String filenameHide) throws IOException {
+	private static void encode(String filename, String filenameHide, String newFileNameHide) throws IOException {
 
 		byte[] bytesOfFile = Files.readAllBytes(Paths.get(filename));
 		byte[] bytesOfMssg = Files.readAllBytes(Paths.get(filenameHide));
@@ -147,9 +148,15 @@ public class Steganography {
 		}
 
 		/*
+		 * We check if new filename contains ".wav" extension.
+		 */
+		if (!newFileNameHide.contains(".wav"))
+			newFileNameHide += ".wav";
+		
+		/*
 		 *  Save the file. We add stega at the beggining of the filename.
 		 */
-		Files.write(Paths.get("stega" + filename), reserveFile);
+		Files.write(Paths.get(newFileNameHide), reserveFile);
 
 	}
 
